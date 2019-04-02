@@ -11,7 +11,9 @@ class Balance extends Model
 
     public function deposit ($value)
     {
-    
+        $this->amount +=  number_format($value,2,'.','');
+        $this->save();
+            
     }
 
 

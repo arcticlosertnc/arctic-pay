@@ -14,7 +14,7 @@
 @stop
 
 @section('content')
-    <p>Deu certo...</p>
+    <p>Meu saldo...</p>
     <div class="box">
         <div class="box-header">
                     
