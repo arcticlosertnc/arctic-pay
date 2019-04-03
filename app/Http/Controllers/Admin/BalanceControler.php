@@ -23,7 +23,12 @@ class BalanceControler extends Controller
 
     }
 
+    public function whichdraw ()
+    {
+        return view('admin.balance.whichdraw'); 
+    }
 
+    
     public function depositStore(MoneyValidationFormRequest $request)
     {
         $balance = auth()->user()->balance()->firstOrCreate([]); 
@@ -41,4 +46,24 @@ class BalanceControler extends Controller
                     ->with('error',$response['message']);
                         
     }
+
+    public function whichdrawStore (MoneyValidationFormRequest $request) 
+    {
+        
+        dd($request->all());
+        $balance = auth()->user()->balance()->firstOrCreate([]); 
+        $response =  $balance ->deposit($request->value);
+
+
+           if ($response['success'])
+                return redirect()
+                            ->route('admin.balance')
+                            ->with('success',$response['message']);
+        
+    
+        return redirect()
+                    ->route('admin.balance')
+                    ->with('error',$response['message']);    
+    }
+
 }
