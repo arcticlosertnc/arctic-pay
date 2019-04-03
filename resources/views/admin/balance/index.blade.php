@@ -14,7 +14,7 @@
 @stop
 
 @section('content')
-    <p>Meu saldo...</p>
+    
     <div class="box">
         <div class="box-header">
                     
@@ -28,7 +28,7 @@
                         <div class="inner">
                         <h3>R$ {{number_format($amount , 2 ,'.', '')}}</h3>
 
-                        <p>Bounce Rate</p>
+                        <p>Saldo do usuario</p>
                         </div>
                         <div class="icon">
                         <i class="ion ion-cash"></i>
