@@ -22,7 +22,7 @@
                 <a href="" class ="btn btn-danger" ><i class="fa fa-arrow-circle-left"></i>     Saque</a>
         </div>
         <div class="box-body">
-              
+        @include('admin.includes.alert')          
                 <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
