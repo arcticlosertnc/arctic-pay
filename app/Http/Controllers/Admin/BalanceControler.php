@@ -49,10 +49,9 @@ class BalanceControler extends Controller
 
     public function whichdrawStore (MoneyValidationFormRequest $request) 
     {
-        
-        dd($request->all());
+      
         $balance = auth()->user()->balance()->firstOrCreate([]); 
-        $response =  $balance ->deposit($request->value);
+        $response =  $balance ->whichdraw($request->value);
 
 
            if ($response['success'])
