@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Balance;
 use App\Http\Requests\MoneyValidationFormRequest;
+use App\User;
 
 class BalanceControler extends Controller
 {
@@ -70,12 +71,14 @@ class BalanceControler extends Controller
                     ->with('error',$response['message']);    
     }
 
-    public function transferStore (Request $request) 
+    public function transferStore (Request $request, User $user) 
     {
 
 
-        dd($request->all());
       
+      
+        $teste = $user->getSender($request->value);
+        dd($teste);
         /*$balance = auth()->user()->balance()->firstOrCreate([]); 
         $response =  $balance ->whichdraw($request->value);
 
