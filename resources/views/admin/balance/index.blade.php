@@ -21,6 +21,8 @@
                 <a href="{{ route('balance.deposit') }}" class ="btn btn-primary"><i class="fa fa-arrow-circle-right"></i></i> Recarga</a>
                     @if($amount >0) 
                         <a href="{{ route('balance.whichdraw') }}" class ="btn btn-danger" ><i class="fa fa-arrow-circle-left"></i>     Saque</a>
+                        <a href="{{ route('balance.transfer') }}" class ="btn btn-warning" ><i class="fa fa-exchange"></i> Transferencia</a>
+                    
                     @endif
         </div>
         <div class="box-body">

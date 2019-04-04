@@ -23,6 +23,8 @@ Route::namespace('Admin')->middleware(['auth'])->prefix('admin')->group(function
     Route::get('balance', 'BalanceControler@index')->name('admin.balance');
     Route::get('deposit', 'BalanceControler@deposit')->name('balance.deposit');
     Route::post('deposit', 'BalanceControler@depositStore')->name('deposit.store');
+    Route::get('transfer', 'BalanceControler@transfer')->name('balance.transfer');
+    Route::post('transfer', 'BalanceControler@transferStore')->name('transfer.store');
     
 
 });
