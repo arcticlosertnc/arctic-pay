@@ -19,7 +19,7 @@
     
         <div class="box-body">
             @include('admin.includes.alert')
-            <form method="POST" action="{{route('transfer.store')}}">
+            <form method="POST" action="{{route('confirm.transfer')}}">
             {!! csrf_field() !!}
                 <div class="form-group">
                     <input type="text" name="value" placeholder="Insira o email do destinatario" class="form-control">
