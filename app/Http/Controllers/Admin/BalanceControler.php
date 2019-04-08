@@ -91,33 +91,36 @@ class BalanceControler extends Controller
                         ->with('error','Você não pode fazer transferencia para você mesmo!');
         
         }
-        return view('admin.balance.transfer-confirm',compact('sender'));
-        
-        /*$balance = auth()->user()->balance()->firstOrCreate([]); 
-        $response =  $balance ->whichdraw($request->value);
 
+        $balance = auth()->user()->balance; 
 
-           if ($response['success'])
-                return redirect()
-                            ->route('admin.balance')
-                            ->with('success',$response['message']);
+        return view('admin.balance.transfer-confirm',compact('sender','balance'));
         
-    
-        return redirect()
-                    ->route('admin.balance')
-                    ->with('error',$response['message']);  
-                    */  
+        
     }
 
 
 
-    public function transferStore (Request $request) 
+    public function transferStore (MoneyValidationFormRequest $request, User $user) 
     {
 
-       dd($request->all());
-      
-        /*$balance = auth()->user()->balance()->firstOrCreate([]); 
-        $response =  $balance ->whichdraw($request->value);
+       
+        // dd($user->find($request->sender_id));
+          if (!$sender =  $user->find($request->sender_id))  
+          {
+            return redirect()
+                         ->route('balance.transfer')
+                         ->with('success','Recebedor não encontrado!');
+          }
+
+
+
+
+
+
+        
+        $balance = auth()->user()->balance()->firstOrCreate([]); 
+        $response =  $balance ->transfer($request->value,$sender);
 
 
            if ($response['success'])
@@ -127,10 +130,10 @@ class BalanceControler extends Controller
         
     
         return redirect()
-                    ->route('admin.balance')
+                    ->route('balance.transfer')
                     ->with('error',$response['message']);
-
-                    */
+      
+        
     }
 
 }
