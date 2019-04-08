@@ -34,6 +34,12 @@ class BalanceControler extends Controller
         return view('admin.balance.transfer'); 
     }
 
+    public function historic ()
+    {
+        $historics = auth()->user()->historics()->get();
+
+        return view('admin.balance.historics',compact('historics'));
+    }
     
     public function depositStore(MoneyValidationFormRequest $request)
     {
@@ -74,8 +80,6 @@ class BalanceControler extends Controller
     public function confirmTransfer (Request $request, User $user) 
     {
 
-
-      
       
         if (!$sender = $user->getSender($request->value))
         {
@@ -104,8 +108,7 @@ class BalanceControler extends Controller
     public function transferStore (MoneyValidationFormRequest $request, User $user) 
     {
 
-       
-        // dd($user->find($request->sender_id));
+        
           if (!$sender =  $user->find($request->sender_id))  
           {
             return redirect()
@@ -114,11 +117,6 @@ class BalanceControler extends Controller
           }
 
 
-
-
-
-
-        
         $balance = auth()->user()->balance()->firstOrCreate([]); 
         $response =  $balance ->transfer($request->value,$sender);
 
