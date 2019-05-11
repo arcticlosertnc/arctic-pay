@@ -7,9 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Balance;
 use App\Http\Requests\MoneyValidationFormRequest;
 use App\User;
+use App\Models\Historic ; 
 
 class BalanceControler extends Controller
 {
+    private $totalpage = 5 ; 
     public function index ()
     {
         $balance = auth()->user()->balance;
@@ -34,11 +36,18 @@ class BalanceControler extends Controller
         return view('admin.balance.transfer'); 
     }
 
-    public function historic ()
+    public function historic (Historic $historic)
     {
-        $historics = auth()->user()->historics()->get();
+                            $historics = auth()
+                            ->user()
+                            ->historics()
+                            ->with('userSender') //with usa o metodo 'userSender' do model historic
+                            ->paginate($this->totalpage); //paginate faz a paginação da tabela  
+        
 
-        return view('admin.balance.historics',compact('historics'));
+        
+       $types = [ 'Entrada','Saida','Transferência' ];
+        return view('admin.balance.historics',compact('historics','types'));
     }
     
     public function depositStore(MoneyValidationFormRequest $request)
@@ -132,6 +141,13 @@ class BalanceControler extends Controller
                     ->with('error',$response['message']);
       
         
+    }
+
+    public function searchHistoric(Request $request,Historic $historic)
+    {
+        $dataForm = $request-> all();
+        $historic->search($dataForm, $this->totalpage);
+
     }
 
 }
