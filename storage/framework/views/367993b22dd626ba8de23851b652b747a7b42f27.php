@@ -70,9 +70,13 @@
                 </tbody>
                 
             </table>
-                <?php echo $historics->links(); ?>
 
-        
+            <?php if(isset($dataForm)): ?>
+            <?php echo $historics->appends($dataForm)->links(); ?>
+
+            <?php else: ?>
+                <?php echo $historics->links(); ?> 
+            <?php endif; ?>        
         </div>
                     
         

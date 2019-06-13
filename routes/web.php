@@ -20,7 +20,7 @@ Route::namespace('Admin')->middleware(['auth'])->prefix('admin')->group(function
     Route::get('/', 'AdminController@index')->name('admin.home'); //rota index
     
     Route::get('historic', 'BalanceControler@historic')->name('admin.historic');
-    Route::post('historic', 'BalanceControler@searchHistoric')->name('historic.search');
+    Route::any('historic-search', 'BalanceControler@searchHistoric')->name('historic.search');
 
     Route::get('whichdraw', 'BalanceControler@whichdraw')->name('balance.whichdraw'); 
     Route::post('whichdraw', 'BalanceControler@whichdrawStore')->name('whichdraw.store');

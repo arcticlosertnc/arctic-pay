@@ -11,7 +11,7 @@ use App\Models\Historic ;
 
 class BalanceControler extends Controller
 {
-    private $totalpage = 5 ; 
+    private $totalpage = 2; 
     public function index ()
     {
         $balance = auth()->user()->balance;
@@ -46,7 +46,11 @@ class BalanceControler extends Controller
         
 
         
-       $types = [ 'Entrada','Saida','Transferência' ];
+                            $types = [
+                                'I' => 'Entrada' , 
+                                'O' => 'Saida',
+                                'T' => 'Transferência',
+                            ];
         return view('admin.balance.historics',compact('historics','types'));
     }
     
@@ -145,8 +149,17 @@ class BalanceControler extends Controller
 
     public function searchHistoric(Request $request,Historic $historic)
     {
-        $dataForm = $request-> all();
-        $historic->search($dataForm, $this->totalpage);
+        $dataForm = $request->except('_token');
+        
+        $historics = $historic->search($dataForm, $this->totalpage);
+        
+        $types = [
+            'I' => 'Entrada' , 
+            'O' => 'Saida',
+            'T' => 'Transferência',
+        ];
+        
+        return view('admin.balance.historics',compact('historics','types','dataForm'));
 
     }
 

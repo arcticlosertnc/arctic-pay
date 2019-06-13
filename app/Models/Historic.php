@@ -46,21 +46,29 @@ class Historic extends Model
 
     public function search(Array $data, $totalPage)
     { 
-             $test = $this->where(function($query) use ($data) {
 
+        
+        $historic  =  $this->where(function($query) use ($data) {
+                $ty  = [
+                    'Entrada'       => 'I' , 
+                    'Saida'         => 'O' ,
+                    'Transferência' =>'T' ,
+                ];
                             if (isset($data['id'])) 
                                         $query->where('id',$data['id']);
                             
-                            if (isset($data['id'])) 
-                                        $query->where('id',$data['id']);
+                            if (isset($data['date'])) 
+                                        $query->where('date',$data['date']);
 
-                            if (isset($data['id'])) 
-                                        $query->where('id',$data['id']);
+                            if (isset($data['type'])) 
+                                        $query->where('type',$ty[$data['type']]);
             
-            })->toSql();
-            dd($test);
-            //->paginate($totalPage);
-    }
+            })//->toSql();
+            //dd($test);
+            //dd($data);
+            ->paginate($totalPage);
+           return $historic ;
+        }
 
 
 
