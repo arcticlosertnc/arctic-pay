@@ -11,7 +11,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
 
 
 Route::namespace('Admin')->middleware(['auth'])->prefix('admin')->group(function () { //grupo de rotas 
@@ -36,8 +36,10 @@ Route::namespace('Admin')->middleware(['auth'])->prefix('admin')->group(function
     
 
 });
-
-
+//Rota para o perfil 
+Route::get('meu-perfil', 'Admin\UserController@profile')->name('profile')->middleware('auth');
+//Rota para atualizar o perfil 
+Route::post('atualiza-perfil', 'Admin\UserController@profileUpdate')->name('profile.update')->middleware('auth');
 //Route::get('admin', 'Admin\AdminController@index')->name('admin.home');
 Route::get('/', 'Site\SiteController@index')->name('home');
 
