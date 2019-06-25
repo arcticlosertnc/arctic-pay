@@ -43,7 +43,11 @@
     </div>
     
     <div class="form-goup">
-        <label for="image">Imagem</label>
+    @if(auth()->user()->image != null)
+            <img src="{{url('storage/users/'.auth()->user()->image)}}" alt="{{url('storage/users'.auth()->user()->image)}}" style="10px;">
+     @endif
+       
+        <label for="image"></label>
         <input type="file" class ='form-control' name="image">
     </div>
     <br>
