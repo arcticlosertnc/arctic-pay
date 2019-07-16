@@ -8,34 +8,32 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Arctic Pay</title>
+  <title>New Age - Start Bootstrap Theme</title>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/bootstrap.min.css')); ?>" >
+  <link href="bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="<?php echo e(asset('css/all.min.css')); ?>" rel="stylesheet">
-  <link rel="stylesheet" href="<?php echo e(asset('css/simple-line-icons.css')); ?>">
+  <link href="all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="simple-line-icons.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
   <!-- Plugin CSS -->
-  <link rel="stylesheet" href="<?php echo e(asset('css/device-mockups.min.css')); ?>">
+  <link rel="stylesheet" href="device-mockups.min.css">
 
   <!-- Custom styles for this template -->
-  <link href="<?php echo e(asset('css/new-age.min.css')); ?>" rel="stylesheet">
+  <link href="new-age.min.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
   <!-- Navigation -->
-  <?php if(Route::has('login')): ?>
-  
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">ARCTIC PAY </a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -45,38 +43,23 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#download">Download</a>
           </li>
-
-        
-
-
-          <?php if(auth()->guard()->check()): ?>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?php echo e(url('/admin')); ?>">Admin</a>
+            <a class="nav-link js-scroll-trigger" href="#features">Features</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?php echo e(route('profile')); ?>">Meu perfil</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
-          <?php else: ?>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="<?php echo e(route('login')); ?>">Login</a>
-                </li>
-                <?php if(Route::has('register')): ?>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="<?php echo e(route('register')); ?>">Registrar</a>
-                </li>
-                <?php endif; ?>
-          <?php endif; ?>
         </ul>
       </div>
     </div>
   </nav>
-  <?php endif; ?>
+
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5">O Arctic-pay ajuda você a fazer transações de forma rápida, pratica e segura com as pessoas.</h1>
+            <h1 class="mb-5">New Age is an app landing page that will help you beautifully showcase your new mobile app, or anything else!</h1>
             <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
           </div>
         </div>
@@ -86,7 +69,7 @@
               <div class="device">
                 <div class="screen">
                   <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img src="<?php echo e(asset('css/demo-screen-1.jpg')); ?>" class="img-fluid" alt="">
+                  <img src="demo-screen-1.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="button">
                   <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -103,11 +86,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <h2 class="section-heading">É gratuito e sempre será.</h2>
-          <p>Em breve nas plataformas : </p>
+          <h2 class="section-heading">Discover what all the buzz is about!</h2>
+          <p>Our app is available on any mobile device! Download now to get started!</p>
           <div class="badges">
-            <a class="badge-link" href="#"><img src="<?php echo e(asset('css/google-play-badge.svg')); ?>" alt=""></a>
-            <a class="badge-link" href="#"><img src="<?php echo e(asset('css/app-store-badge.svg')); ?>" alt=""></a>
+            <a class="badge-link" href="#"><img src="google-play-badge.svg" alt=""></a>
+            <a class="badge-link" href="#"><img src="app-store-badge.svg" alt=""></a>
           </div>
         </div>
       </div>
@@ -134,17 +117,15 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="<?php echo e(asset('css/jquery.min.js')); ?>"></script>
-  <script src="<?php echo e(asset('css/bootstrap.bundle.min.js')); ?>"></script>
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="<?php echo e(asset('css/jquery.easing.min.js')); ?>"></script>
+  <script src="jquery.easing.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="<?php echo e(asset('css/new-age.min.js')); ?>"></script>
+  <script src="new-age.min.js"></script>
 
 </body>
 
 </html>
-
-<?php /* /home/vagrant/sites/arctic-pay/resources/views/site/home/index.blade.php */ ?>
