@@ -44,7 +44,7 @@
     
     <div class="form-goup">
     @if(auth()->user()->image != null)
-            <img src="{{url('storage/users/'.auth()->user()->image)}}" alt="{{url('storage/users'.auth()->user()->image)}}" style="10px;">
+            <img src="{{url('storage/users/'.auth()->user()->image)}}" alt="{{url('storage/users'.auth()->user()->image)}}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
      @endif
        
         <label for="image"></label>
@@ -53,6 +53,7 @@
     <br>
     <div class="form-goup">
         <button type="submit" class="btn btn-info" >Atualiza perfil</button>
+        <a href="{{ route('admin.home') }}" class ="btn btn-info" >Voltar</a>
     </div>
 
 

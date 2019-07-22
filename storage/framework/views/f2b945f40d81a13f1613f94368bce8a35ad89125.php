@@ -56,6 +56,14 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
+
+                        <li>
+                            <img src="<?php echo e(url('storage/users/'.auth()->user()->image)); ?>" alt="<?php echo e(url('storage/users'.auth()->user()->image)); ?>" style="width:32px; height:32px; float:left; border-radius:50%; margin-top:10px;">   
+                        </li>
+                        <li>
+                            
+                            <a href="<?php echo e(route('profile')); ?>">Meu perfil</a>
+                        </li>
                         <li>
                             <?php if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<')): ?>
                                 <a href="<?php echo e(url(config('adminlte.logout_url', 'auth/logout'))); ?>">
@@ -79,6 +87,8 @@
                                 </form>
                             <?php endif; ?>
                         </li>
+                      
+                        
                     </ul>
                 </div>
                 <?php if(config('adminlte.layout') == 'top-nav'): ?>

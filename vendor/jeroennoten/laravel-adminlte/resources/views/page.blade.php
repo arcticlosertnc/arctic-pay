@@ -57,6 +57,14 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
+
+                        <li>
+                            <img src="{{url('storage/users/'.auth()->user()->image)}}" alt="{{url('storage/users'.auth()->user()->image)}}" style="width:32px; height:32px; float:left; border-radius:50%; margin-top:10px;">   
+                        </li>
+                        <li>
+                            
+                            <a href="{{ route('profile') }}">Meu perfil</a>
+                        </li>
                         <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
                                 <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
@@ -76,6 +84,8 @@
                                 </form>
                             @endif
                         </li>
+                      
+                        
                     </ul>
                 </div>
                 @if(config('adminlte.layout') == 'top-nav')
